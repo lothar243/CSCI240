@@ -109,6 +109,8 @@ Need examples of dependencies
 
 ## 4.5 Supertype and subtype entities
 
+[YouTube - Appficial - IsA Relationship (2:46)](https://www.youtube.com/watch?v=s9N2EDYdlC0)
+
 Example: managers are a subset of employees, so Manager is a subtype entity of the Employee supertype
 
 In ER diagrams, supertypes are drawn as a box around the subtypes
