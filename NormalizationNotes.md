@@ -64,10 +64,12 @@ More examples on wikipedia: <https://en.wikipedia.org/wiki/Third_normal_form>
 
 ## Boyce-Codd Normal Form (BCNF)
 
-If a relational schema is in BCNF then all redundancy based on functional dependency has been removed, although other types of redundancy may still exist. A relational schema R is in Boyce–Codd normal form if and only if for every one of its dependencies X → Y, at least one of the following conditions hold:
+If a relational schema is in BCNF then all redundancy based on functional dependency has been removed, although other types of redundancy may still exist. 
+
+A relational schema R is in Boyce–Codd normal form if and only if for every one of its dependencies X → Y, at least one of the following conditions hold:
 
 * X → Y is a trivial functional dependency (Y  is a subset of X)
-* X is a superkey for schema R
+* X is a superkey for schema R - In other words X contains a candidate key
 
 | Court | Start time | End time | Rate type |
 | ----- | ---------- | -------- | --------- |
@@ -86,29 +88,7 @@ If a relational schema is in BCNF then all redundancy based on functional depend
   - PREMIUM-A, for Court 2 bookings made by members
   - PREMIUM-B, for Court 2 bookings made by non-members
 
-The table's [superkeys](https://en.wikipedia.org/wiki/Superkey) are:
-
-- S1 = {Court, Start time}
-- S2 = {Court, End time}
-- S3 = {Rate type, Start time}
-- S4 = {Rate type, End time}
-- S5 = {Court, Start time, End time}
-- S6 = {Rate type, Start time, End time}
-- S7 = {Court, Rate type, Start time}
-- S8 = {Court, Rate type, End time}
-- ST = {Court, Rate type, Start time, End time}, the trivial superkey
-
-Note that even though in the above table *Start time* and *End time* attributes have no duplicate values for each of them, we still have to  admit that in some other days two different bookings on court 1 and  court 2 could *start at the same time* or *end at the same time*.  This is the reason why {Start time} and {End time} cannot be considered as the table's superkeys.
-
-However, only S1, S2, S3 and S4 are [candidate keys](https://en.wikipedia.org/wiki/Candidate_key) (that is, minimal superkeys for that relation) because e.g. S1 ⊂ S5, so S5 cannot be a candidate key.
-
-Recall that [2NF](https://en.wikipedia.org/wiki/Second_normal_form) prohibits partial functional dependencies of non-prime attributes (i.e., an attribute that does not occur in *any* candidate key. See [candidate keys](https://en.wikipedia.org/wiki/Candidate_key)) on candidate keys, and that [3NF](https://en.wikipedia.org/wiki/Third_normal_form) prohibits [transitive functional dependencies](https://en.wikipedia.org/wiki/Transitive_dependency) of non-prime attributes on candidate keys.
-
-In **Today's court bookings** table, there are no non-prime  attributes: that is, all attributes belong to some candidate key.  Therefore the table adheres to both 2NF and 3NF.
-
-The table does not adhere to BCNF. This is because of the  dependency Rate type → Court in which the determining attribute Rate  type – on which Court depends – (1) is neither a candidate key nor a  superset of a candidate key and (2) Court is no subset of Rate type.
-
-Dependency Rate type → Court is respected, since a Rate type should only ever apply to a single Court.
+The table is in 3NF, but it fails to be in BCNF because Rate type → Court, but Rate type is not a candidate key
 
 The design can be amended so that it meets BCNF:
 
@@ -127,8 +107,6 @@ The design can be amended so that it meets BCNF:
 | No          | 2     | 10:00      | 11:30    |
 | No          | 2     | 11:30      | 13:30    |
 | Yes         | 2     | 15:00      | 16:30    |
-
-The candidate keys for the Rate types table are {Rate type} and  {Court, Member flag}; the candidate keys for the Today's bookings table  are {Court, Start time} and {Court, End time}. Both tables are in BCNF.  When {Rate type} is a key in the Rate types table, having one Rate type  associated with two different Courts is impossible, so by using {Rate  type} as a key in the Rate types table, the anomaly affecting the  original table has been eliminated.
 
 ## Achievability of BCNF
 
