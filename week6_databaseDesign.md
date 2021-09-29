@@ -54,6 +54,31 @@ else:
   .. # this will run if it is imported as a module, typically nothing is done here
 ```
 
+## Code outline for splitting on a cell
+
+```python3
+open your input and output files:
+  parse the inputfile with a csv.reader
+  for line in inputfile:
+    targetCell = line[col_num]
+    line.extend(targetCell.split(delimiter))
+    line.pop(col_num) # remove the original row
+    possibly add some blank cells to the other rows so that all rows have the same number of cells
+    write the row to the output file with csv.writer
+```
+
+### Code outline for creating a bridging table
+
+```python3
+open your input and output files:
+  parse the inputfile with a csv.reader
+  for line in inputfile:
+    targetCell = line[col_num]
+    multi_values_list = targetCell.split(delimieter)
+    for each value in the the multi_values_list
+      output to the output file the two keys (the primary key of the input table), and this value
+```
+
 # The Entity-relationship model
 
 ## 4.1 Entities, relationships, and attributes
