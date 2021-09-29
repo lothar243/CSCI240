@@ -1,3 +1,59 @@
+# Python with CSV files
+
+[YouTube - Socratica - CSV Files in Python](https://www.youtube.com/watch?v=Xi52tx6phRU)
+
+### Taking command-line arguments
+
+```python3
+import sys
+...
+if len(argv) >= 3: # ensure there are at least two arguments
+  ...
+else:
+  print("Usage: ...")
+```
+
+`argv` is a list, where `argv[0]` is the name of the program being run, `argv[1]` is the first argument, etc
+
+### Working with Lists
+
+```python3
+mylist = ['asdf', 'qwer', 'poiu'] # defining a list
+print(mylist[0]) # print item at index zero, 'asdf' in this case
+print(len(mylist)) # get the length of the list
+mylist.append(4) # append a single item to the list
+mylist2 = ['a', 'b', 'c']
+mylist.extend(mylist2) # append all the items from mylist2 to mylist
+```
+
+### Working with Files and CSV
+
+```python3
+import csv
+
+# open a file for reading
+with open ("myfile.csv", 'r') as inputfile:
+  reader = csv.reader(inputfile)
+  for line in reader: # reads all the lines from the csv file, one at a time
+    ...               # 'line' is a list of the cells in the csv file
+    
+# open a file for writing
+with open ("outputfile.csv", 'w') as outputfile:
+  writer = csv.writer(outputfile)
+  writer.writerows(list_of_lists) # output a 2d list to the file all-at-once
+  .. or ..
+  writer.writerow(mylist) # output a list as a single line to the file
+```
+
+### Ensuring the Script is Run Directly
+
+```python3
+if __name__ == "__main__":
+  .. # this will run if the script is called directly
+else:
+  .. # this will run if it is imported as a module, typically nothing is done here
+```
+
 # The Entity-relationship model
 
 ## 4.1 Entities, relationships, and attributes
