@@ -139,3 +139,6 @@ As a database administrator, your job is not to clean up the data that users put
 It is not a good practice to make changes to a database without reason. If a database already has a surrogate key, there is no reason to create another one.
 
 The goal is not to remove rows that are similar data either.
+
+It is not beneficial to split a table just to create two tables
+
