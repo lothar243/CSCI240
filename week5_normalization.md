@@ -132,3 +132,10 @@ The candidate keys of the table are:
 
 Because all three attributes are prime attributes (i.e. belong to  candidate keys), the table is in 3NF. The table is not in BCNF, however, as the Shop type attribute is functionally dependent on a non-superkey: Nearest shop.
 
+# Normalization is not...
+
+As a database administrator, your job is not to clean up the data that users put in. If a user chooses to put nearly the same value in multiple fields this is their choice. 
+
+It is not a good practice to make changes to a database without reason. If a database already has a surrogate key, there is no reason to create another one.
+
+The goal is not to remove rows that are similar data either.
