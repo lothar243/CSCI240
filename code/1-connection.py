@@ -1,3 +1,4 @@
+# if you haven't already, you need to: pip3 install mysql-connector-python
 import mysql.connector
 
 # Create a connection to the mySQL DBMS
@@ -5,7 +6,7 @@ import mysql.connector
 # This connection info should not be uploaded to GitHub normally. Instead, you could import another file that contains only the connection info and is not part of the git repository.
 mydb = mysql.connector.connect(
     host="127.0.0.1",
-    port="3306",
+    port=23306,
     user="jeff",
     password="mypass"
 )
