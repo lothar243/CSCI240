@@ -8,3 +8,4 @@ mydb = mysql.connector.connect(
 )
 
 print(mydb)
+mydb.close()

@@ -24,3 +24,6 @@ print("This is what the results look like when we print them one line at a time:
 print(mycursor.column_names)
 for x in myresult:
     print(x)
+
+mycursor.close()
+mydb.close()

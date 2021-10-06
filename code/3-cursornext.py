@@ -19,3 +19,6 @@ myresult = mycursor.fetchone()
 while myresult is not None:
     print(myresult)
     myresult = mycursor.fetchone()
+
+mycursor.close()
+mydb.close()
