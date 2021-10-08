@@ -39,3 +39,7 @@ Plural attributes move to a new table
 
 * Plural attribute and foreign key of initial table, this becomes the composite key
 * The name is the initial table name, plus the attribute name
+
+## Normalization/Denormalization
+
+Verify functional dependencies. Recall that for BCNF, the only functional dependencies should be on a full candidate key.
