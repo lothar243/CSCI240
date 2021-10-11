@@ -43,3 +43,11 @@ Plural attributes move to a new table
 ## Normalization/Denormalization
 
 Verify functional dependencies. Recall that for BCNF, the only functional dependencies should be on a full candidate key.
+
+# Todo
+
+Normalize speakers.csv and stolen guns for them
+
+Talk about the music database ER diagram, relate the track to the invoice of the 'Heather Designs'
+
+Step through process of the Heather Designs ER diagram to create SQL tables
