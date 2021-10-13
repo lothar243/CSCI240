@@ -78,5 +78,7 @@ if __name__ == '__main__':
     print(my_interface.select_all_speaker_category(conn))
     print("Selecting * from Category")
     print(my_interface.select_all_categories(conn))
+    conn.commit()
+    conn.close()
 
 

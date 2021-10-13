@@ -11,6 +11,7 @@ def create_connection():
 
     try:
         conn = sqlite3.connect(":memory:")
+        # conn = sqlite3.connect("speakers.db")
         return conn
     except Error as e:
         print(e)
