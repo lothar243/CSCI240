@@ -24,21 +24,23 @@ The differences in syntax and in the paradigm must be overcome
 The program needs to know where to find the database, as well as how to log in
 
 ```shell
-vim 1-connection.py
+vim 1-sqliteconnection.py
+vim 1-mysqlconnection.py
 ```
 
 ## Cursors
 
 ```shell
-vim 2-cursorFetchall.py
+vim 2-sqlite_fetchall.py
+vim 2-mysqlcursorFetchall.py
 vim 3-cursornext.py
 ```
+
+
 
 ```python3
 help(mysql.connector.cursor)
 ```
-
-On zyBooks, the C syntax is different... FETCH instead of fetchone
 
 ## Shared Variables
 
