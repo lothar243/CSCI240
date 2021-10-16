@@ -49,7 +49,10 @@ vim 3-cursornext.py
 ```
 
 
-On zyBooks, the C syntax is different... FETCH instead of fetchone
+
+```python3
+help(mysql.connector.cursor)
+```
 
 ## Shared Variables
 
