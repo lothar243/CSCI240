@@ -2,6 +2,7 @@ import csv
 import sqlite3
 from sqlite3 import Error
 
+
 # Create a connection to sqlite in-memory database
 def create_connection():
     """
@@ -17,6 +18,7 @@ def create_connection():
         print(e)
 
     return None
+
 
 # Create Speaker table
 def create_speaker_table(conn):
@@ -47,6 +49,7 @@ def create_speaker_table(conn):
     except Error as e:
         print(e)
 
+
 # Create speaker-category table
 def create_speaker_category_table(conn):
     """
@@ -58,7 +61,9 @@ def create_speaker_category_table(conn):
         CREATE TABLE Speaker_category (
             Guest_id integer NOT NULL,
             Category_id integer NOT NULL,
-            PRIMARY KEY (Guest_id, Category_id)
+            PRIMARY KEY (Guest_id, Category_id),
+            foreign key (Guest_id) references Speaker(Guest_id),
+            foreign key (Category_id) references Category(Category_id)
          ); """
 
     try:
@@ -67,6 +72,7 @@ def create_speaker_category_table(conn):
         c.execute(sql_create_speaker_category_table)
     except Error as e:
         print(e)
+
 
 # Create speaker-category table
 def create_category_table(conn):
@@ -137,7 +143,7 @@ def read_speakers(conn):
     :return number of entries inserted:
     """
     numentries = 0
-    with open ("speaker.csv", "r") as csvfile:
+    with open("speaker.csv", "r") as csvfile:
         # discard the first row
         csvfile.readline()
 
@@ -175,7 +181,7 @@ def read_category(conn):
     :return number of entries inserted:
     """
     numentries = 0
-    with open ("category.csv", "r") as csvfile:
+    with open("category.csv", "r") as csvfile:
         # discard the first row
         csvfile.readline()
 
@@ -184,6 +190,7 @@ def read_category(conn):
             insert_category(conn, row)
             numentries += 1
     return numentries
+
 
 # Selects and prints all rows of Speaker table
 def select_all_speakers(conn):
