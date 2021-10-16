@@ -21,28 +21,37 @@ The differences in syntax and in the paradigm must be overcome
 
 ## Connections
 
+For mysql, pip3 install mysql-connector-python
+
 The program needs to know where to find the database, as well as how to log in
 
+With sqlite, this just means pointing it at a specific file, or :memory:
+
+With mySQL, this means specifying the IP address, port, username, and password
+
+* Be sure your connection information is not included in your commit to Github
+
 ```shell
-vim 1-connection.py
+vim 1-sqliteconnection.py
+vim 1-mysqlconnection.py
 ```
 
 ## Cursors
-
-```shell
-vim 2-cursorFetchall.py
-vim 3-cursornext.py
-```
 
 ```python3
 help(mysql.connector.cursor)
 ```
 
+```shell
+vim 2-sqlite_fetchall.py
+vim 2-mysqlcursorFetchall.py
+vim 3-cursornext.py
+```
+
+
 On zyBooks, the C syntax is different... FETCH instead of fetchone
 
 ## Shared Variables
-
-pip3 install mysql-connector-python
 
 mysql defaults to port 3306 - I'm using port forwarding in virtualbox
 
