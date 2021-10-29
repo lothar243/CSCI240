@@ -1,14 +1,20 @@
 # Week 10.1 NoSQL Databases
 
-## Big Data
+Big Data
 
-## Key-value databases
+## Aggregate-oriented databases
 
-## JSON document type
+First 20 minutes of [NoSQL Introduction](https://www.youtube.com/watch?v=qI_g07C_Q5I)
+
+### Key-value databases
+
+### Wide column databases
+
+### Document databases
 
 # Week 10.2
 
-## Wide column databases
+## JSON document type
 
 ## Graph Databases
 
