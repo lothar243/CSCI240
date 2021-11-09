@@ -19,6 +19,8 @@ Analytical applications may be more interested in just reading a few columns fro
 
 ## Indexes
 
+[YouTube - Socratica - Introduction to Indexes (9:56)](https://www.youtube.com/watch?v=fsG1XaZEa78)
+
 Indexes are used to help find data when you want to read. 
 
 * Typically a single column that is sorted and contains a pointer to the location of the full row (stored elsewhere)
