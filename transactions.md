@@ -70,7 +70,7 @@ A **lock manager** is the component of the system that tracks, grants, and relea
 ## Two-phase locking
 
 * **Basic two-phase locking** - The transaction can be either in a grow or shrink phase
-* **String two-phase locking** - holds all exclusive locks until the transaction commits or rolls back. The expand phase is the same as in basic two-phase locking, but the contract phase releases only shared locks. 
+* **Strict two-phase locking** - holds all exclusive locks until the transaction commits or rolls back. The expand phase is the same as in basic two-phase locking, but the contract phase releases only shared locks. 
 * **Rigorous two-phase locking** - holds both shared and exclusive locks until the transaction commits or rolls back. In effect, rigorous two-phase locking has no contract phase. 
 
 ## Deadlock
