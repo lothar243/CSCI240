@@ -96,6 +96,29 @@ Deadlock can be avoided in several ways
 
 # Recovery
 
+### Failure Scenarios
+
+1. A **transaction failure** - Logic error, deadlock, insufficient disk space, etc
+   * Results in a rollback
+2. A **system failure** - Application crash or OS crash
+   * Transactions that were only written to memory are likely lost
+   * Roll back data written to storage by uncommitted transactions
+3. A **storage media failure** - Hard drive failure
+   * Redundant storage is required (RAID or backup)
+
+### Recovery Log
+
+A recovery log contains 4 types of records:
+
+1. An **update record**, which indicates a transaction has changed data
+2. A **compensation record**, also known as an undo record, which indicates that data has been restored after a rollback
+3. A **transaction record**, which indicates a transaction boundary
+4. A **checkpoint record**, which indicates that all data in main memory has been saved on storage media.
+
+By default, mySQL only logs errors (in /var/log/mysql/error.log or /var/log/mysqld.log)
+
+To enable logs, edit the file at /etc/mysql/mysql.conf.d/mysqld.cnf and uncomment the appropriate lines, followed by restarting the service with `sudo systemctl restart mysql.service`
+
 # Transactions with SQL
 
 ```sql
