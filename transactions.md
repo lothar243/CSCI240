@@ -119,6 +119,8 @@ By default, mySQL only logs errors (in /var/log/mysql/error.log or /var/log/mysq
 
 To enable logs, edit the file at /etc/mysql/mysql.conf.d/mysqld.cnf and uncomment the appropriate lines, followed by restarting the service with `sudo systemctl restart mysql.service`
 
+If the file isn't located there, start from `/etc/mysql/mysql.cnf` to track down the file locations
+
 # Transactions with SQL
 
 ```sql
